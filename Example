@@ -1,0 +1,70 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NIcoGabrielRealYtr/IdkThisOne-Modified/refs/heads/main/Source"))()
+
+local Window = Library:Window({
+    Logo = "123748867365417",
+    FadeSpeed = 0.15,
+    PagePadding = 19,
+    Size = UDim2.new(0, 600, 0, 300)
+})
+
+local Pages = {
+    ["One"] = Window:Page({Icon = "109391165290124"})
+}
+
+local AimbotSubpage = Pages["One"]:SubPage({Name = "Aimbot"})
+local TestSubpage = Pages["One"]:SubPage({Name = "Test"})
+local AimbotSection = AimbotSubpage:Section({Name = "Left", Side = "Left"})
+
+local Toggle = AimbotSection:Toggle({
+    Name = "Enable", 
+    Flag = "Enable", 
+    Default = false,
+})
+
+AimbotSection:Button({ Name = "Button" })
+
+AimbotSection:Button({ Name = "Button" }):SubButton({ Name = "SubButton" })
+
+AimbotSection:Slider({
+    Name = "Slider", 
+    Flag = "Slider", 
+    Min = 0, 
+    Default = 0, 
+    Max = 100, 
+    Suffix = "%", 
+    Decimals = 1, 
+})
+
+AimbotSection:Dropdown({
+    Name = "Dropdown", 
+    Flag = "Dropdown", 
+    Items = { "One", "Two", "Three", "Four" }, 
+    Multi = false,
+    MaxSize = 50,
+})
+
+local ColorpickerLabel = AimbotSection:Label("Colorpicker", "Left")
+
+ColorpickerLabel:Colorpicker({ 
+    Name = "Colorpicker", 
+    Flag = "Colorpicker", 
+    Default = Color3.fromRGB(255, 255, 255), 
+})
+
+AimbotSection:Keybind({
+    Name = "Keybind",
+    Flag = "Keybind",
+    Default = Enum.KeyCode.C,
+    Mode = "Toggle",
+})
+
+AimbotSection:Textbox({
+    Name = "Textbox",
+    Flag = "Textbox",
+    Placeholder = "Placeholder",
+    Default = "Input",
+})
+
+local TestSection = AimbotSubpage:Section({Name = "Right", Side = "Right"})
+
+Library:Notification("Notification test", "Test", 5)
